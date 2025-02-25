@@ -1,0 +1,20 @@
+package com.madarsoft.task.di
+
+import com.madarsoft.core.repository.UserInformationRepository
+import com.madarsoft.core.usecase.AddNewUserUseCase
+import com.madarsoft.core.usecase.GetUserUseCase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+
+@Module
+@InstallIn(ViewModelComponent::class)
+object DisplayScreenModule {
+
+
+    @Provides
+    fun provideGetUserUseCase(userInformationRepository: UserInformationRepository):GetUserUseCase{
+        return GetUserUseCase(userInformationRepository)
+    }
+}
